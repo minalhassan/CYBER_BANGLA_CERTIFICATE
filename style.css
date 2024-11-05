@@ -1,0 +1,294 @@
+<style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    color: #302c2c;
+    padding: 20px;
+}
+
+/* Input Form Styles */
+.input-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(57, 50, 50, 0.158);
+    font-family: Arial, sans-serif;
+}
+
+.input-form h2 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.input-form label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.input-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+}
+
+.input-form input:focus {
+    border-color: #5b9bd5;
+    outline: none;
+}
+
+.input-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.input-form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Certificate Styling */
+.certificate {
+    position: relative;
+    width: 850px;
+    padding: 40px;
+    background: #fff url('bg.png') center/cover no-repeat;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+
+}
+
+.border-top,
+.border-bottom {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #322d2d00;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.border-top {
+    top: 0;
+    left: 0;
+}
+
+.border-bottom {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.content {
+    text-align: center;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+.logo {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 1.8em;
+    color: #25A334;
+    font-weight: bold;
+}
+
+.title h2 {
+    font-size: 3em;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.title p {
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #777;
+    margin-top: 5px;
+}
+
+.recipient h3 {
+    font-size: 2em;
+    font-weight: 600;
+    margin: 20px 0 10px;
+}
+
+.recipient p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.course-name h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.course-name p {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 20px;
+    line-height: 1.5;
+}
+
+.results-table {
+    margin: 30px auto;
+    width: 80%;
+}
+
+.results-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table th,
+.results-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.results-table th {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.results-table td {
+    font-size: 1em;
+    color: #555;
+}
+
+.footer {
+    display: flex;               /* Use flexbox for layout */
+    justify-content: space-between; /* Space out children evenly */
+    align-items: center;        /* Center align items vertically */
+    margin-top: 40px;          /* Space above the footer */
+    padding-top: 20px;         /* Space inside the footer at the top */
+    border-top: 1px solid #ddd; /* Optional: top border */
+    height: 150px;             /* Fixed height for the footer */
+}
+
+.signature {
+    text-align: center;         /* Center text within each signature */
+    flex: auto;               /* Allow signatures to grow and fill space */
+    font-size: 1.1em;
+    margin-bottom: 100px;
+    
+    
+}
+.signature span {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 50px;
+    padding: 0px;;
+}
+.signature:first-child {
+    text-align: left,50px;          /* Align the first signature to the left */
+    
+}
+.signature p {  
+    font-weight: bold;
+}
+.signature:last-child {
+    text-align: right,50px;         /* Align the second signature to the right */
+    padding: left 20px; 
+
+}
+
+.details {
+    display: flex;              /* Use flexbox for the details layout */
+    justify-content: space-between; /* Space out ID and duration evenly */
+    margin-top: 20px;          /* Adds space above the details section */
+    font-size: 0.9em;          /* Font size for details */
+    color: #333;               /* Text color for details */
+    font-weight: 500;          /* Font weight for details */
+}
+.details span {
+    font-size: 0.9em;
+    color: #777;}
+.details p {
+    margin-top: 5px;                 /* Remove default margin from paragraphs */
+    flex: 1;                   /* Allow paragraphs to grow and fill space */
+    font-weight: bold;
+}
+
+.details p:first-child {
+    text-align: left,50px;          /* Align STUDENT ID to the left */
+}
+
+.details p:last-child {
+    text-align: right,50px;         /* Align COURSE DURATION to the right */
+}
+
+
+
+/* Download Button Styling */
+button.download-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+button.download-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slightly lift the button */
+}
+
+button.download-btn:active {
+    background-color: #004085; /* Even darker blue when pressed */
+    transform: translateY(0); /* Reset position */
+}
+
+</style>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="filesaver" href="filesaver.js">
+    <link rel="script" href="script.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+   <!-- Input Form -->
+<div class="input-form">
+    <h2>Enter Certificate Details</h2>
+
+    <label for="recipient-name">Recipient Name:</label>
+    <input type="text" id="recipient-name" placeholder="Enter recipient's name">
+
+    <label for="assignment-score">Assignment Score (%)</label>
+    <input type="number" id="assignment-score" placeholder="Assignment Score">
+
+    <label for="quiz-score">Quiz Score (%)</label>
+    <input type="number" id="quiz-score" placeholder="Quiz Score">
+
+    <label for="live-test-score">Live Test Score (%)</label>
+    <input type="number" id="live-test-score" placeholder="Live Test Score">
+
+    <label for="ctf-score">CTF Score (%)</label>
+    <input type="number" id="ctf-score" placeholder="CTF Score">
+
+    <label for="student-id">Student ID</label>
+    <input type="text" id="student-id" placeholder="Enter Student ID">
+
+    <label for="course-duration">Course Duration</label>
+    <input type="text" id="course-duration" placeholder="Enter Course Duration (e.g., 6 months)">
+
+    <button onclick="generateCertificate()">Generate Certificate</button>
+</div>
+
+    <!-- Certificate Template -->
+    <div class="certificate" id="certificate">
+       <!--   <div class="border-top"></div>
+        <div class="border-bottom"></div> -->
+
+        <div class="content">
+            <div class="header">
+                <img src="logo.png" alt="CB Logo" class="logo"> 
+                <h1>Cyber Bangla</h1>
+            </div>
+            
+            <div class="title">
+                <h2>CERTIFICATE</h2>
+                <p>of Assessment</p>
+            </div>
+            
+            <div class="recipient">
+                <h3 id="recipient-name-display">Recipient Name</h3>
+                <p>Has successfully completed the online live course on</p>
+            </div>
+
+            <div class="course-name">
+                <h4>COURSE ETHICAL HACKING AND CYBERSECURITY</h4>
+                <p>We commend <strong id="strong-tag-display">Recipient Name</strong> for exemplary performance throughout the course and dedication to enhancing expertise in cybersecurity.</p>
+            </div>
+
+            <div class="results-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Exam Type</th>
+                            <th>Result (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Assignment</td>
+                            <td id="assignment-score-display">0%</td>
+                        </tr>
+                        <tr>
+                            <td>Quiz</td>
+                            <td id="quiz-score-display">0%</td>
+                        </tr>
+                        <tr>
+                            <td>Live Test</td>
+                            <td id="live-test-score-display">0%</td>
+                        </tr>
+                        <tr>
+                            <td>CTF</td>
+                            <td id="ctf-score-display">0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="signature">
+                    <p>Foysal Hossain</p>
+                    <span>Founder & CEO</span>
+                </div>
+                
+                <div class="signature">
+                    <p>Rakib Ahmed</p>
+                    <span>Managing Director</span>
+                </div>
+            </div>
+            
+            <div class="details">
+                <p>STUDENT ID: <span id="student-id-display">00000000</span></p>
+                <p>COURSE DURATION: <span id="course-duration-display">0 months</span></p>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadCertificate()">Download as PDF</button>
+
+
+    <script>
+        // Function to populate the certificate with input values
+        function generateCertificate() {
+            const recipientName = document.getElementById('recipient-name').value;
+            const assignmentScore = document.getElementById('assignment-score').value;
+            const quizScore = document.getElementById('quiz-score').value;
+            const liveTestScore = document.getElementById('live-test-score').value;
+            const ctfScore = document.getElementById('ctf-score').value;
+            const studentId = document.getElementById('student-id').value;
+            const courseDuration = document.getElementById('course-duration').value;
+
+            document.getElementById('recipient-name-display').textContent = recipientName;
+            document.getElementById('strong-tag-display').textContent = recipientName;
+            document.getElementById('assignment-score-display').textContent = `${assignmentScore}%`;
+            document.getElementById('quiz-score-display').textContent = `${quizScore}%`;
+            document.getElementById('live-test-score-display').textContent = `${liveTestScore}%`;
+            document.getElementById('ctf-score-display').textContent = `${ctfScore}%`;
+            document.getElementById('student-id-display').textContent = studentId;
+            document.getElementById('course-duration-display').textContent = courseDuration;
+        }
+
+        // Function to download the certificate as PDF
+        function downloadCertificate() {
+            const certificate = document.getElementById('certificate');
+            const options = {
+                margin: 0,
+                filename: 'certificate.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'absulute' }
+            };
+            html2pdf().from(certificate).set(options).save();
+        }
+    </script>
+</body>
+</html>
