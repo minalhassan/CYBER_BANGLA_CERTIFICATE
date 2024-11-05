@@ -22,7 +22,7 @@ const generatePDF = async (name) =>{
     const {PDFDocument , rgb} = PDFLib;
     const exBytes = await fetch("./certificate.pdf").then(res=>
         res.arrayBuffer());
-    const exFont = await fetch("./Arial, sans-serif").then(res => {
+    const exFont = await fetch("./Sanchez-Regular.ttf").then(res => {
         return res.arrayBuffer();
     });
 
